@@ -1,0 +1,5 @@
+[{
+    "lesson": 1,
+    "audio": ["audio-1.ogg", "audio-2.ogg"],
+    "images": ["img-1.jpg", "img-2.jpg"]
+}]
