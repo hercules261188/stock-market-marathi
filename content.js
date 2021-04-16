@@ -28,7 +28,7 @@ function generateHTML(mappings){
 
     for (let i=0; i<lesson_data.audio.length;i++){
         let element = lesson_data.audio[i]
-        inner += `<li class="list-group-item"><p>Audio clip-${i+1}</p><audio id="${element}" src="/data/audio/${element}"></audio>
+        inner += `<li class="list-group-item"><p>Audio clip-${i+1}</p><audio preload="true" id="${element}" src="https://pratik-choudhari.github.io/stock-market-marathi/data/audio/${element}"></audio>
         <button id="${element}" onClick="play_audio(this)" class="btn btn-primary">play</button>
         <button id="${element}" onClick="pause_audio(this)" class="btn btn-secondary">pause</button><br></li>`
     }
