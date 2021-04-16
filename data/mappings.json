@@ -1,5 +1,13 @@
 [{
-    "lesson": 1,
-    "audio": ["audio-1.ogg", "audio-2.ogg"],
-    "images": ["img-1.jpg", "img-2.jpg"]
+    "topic_id": 1,
+    "lessons": [{"lesson_id": 1, "title": "Intraday levels", "audio": ["intraday support resistance.ogg"], "image": ["intraday support resistance.jpeg"]},
+                {"lesson_id": 2, "title": "Risk in intraday trading", "audio": ["risk appetite.ogg"], "image": ["risk appetite.jpeg"]}],
+    "title": "Risk and Intraday levels",
+    "description": "Learn how to manage risk and manage intraday levels"
+},
+{
+    "topic_id": 2,
+    "lessons": [{"lesson_id": 1, "title": "Media effect", "audio": ["important of media in stock market.ogg"], "image": ["important of media in stock market.jpeg"]}],
+    "title": "Importance of media in stock market",
+    "description": "Learn how media can help you get an edge over others"
 }]
