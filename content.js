@@ -43,6 +43,6 @@ function generateHTML(mappings){
 
 
 // read mappings file
-fetch("/data/mappings.json")
+fetch("https://pratik-choudhari.github.io/stock-market-marathi/data/mappings.json")
     .then(response => response.json())
     .then(generateHTML);
