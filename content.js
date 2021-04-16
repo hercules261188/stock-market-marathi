@@ -35,7 +35,7 @@ function generateHTML(mappings){
     inner += `<li class="list-group-item"><h5>Images</h5></li>`
     for (let i=0; i<lesson_data.image.length;i++){
         let element = lesson_data.image[i]
-        inner += `<li class="list-group-item"><p>image-${i+1}</p><img id="${element}" class="img-fluid rounded mx-auto d-block" src="/data/images/${element}"></img>`
+        inner += `<li class="list-group-item"><p>image-${i+1}</p><img id="${element}" class="img-fluid rounded mx-auto d-block" src="https://pratik-choudhari.github.io/stock-market-marathi/data/images/${element}"></img>`
     }
     inner += "</ul>"
     bodyTag.innerHTML = inner;
