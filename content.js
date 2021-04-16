@@ -3,37 +3,41 @@ let lesson = params.get("lesson_identifier").split(".")
 const topic_id = parseInt(lesson[0])
 const lesson_id = parseInt(lesson[1])
 
+function array_match(arr, key, id_){
+    let temp_data;
+    flag=true;
+    arr.forEach(element => {
+        console.log(element);
+        if ((element[key] == id_) && flag){
+            temp_data = element;
+            flag=false;
+        }
+    });
+    return temp_data;
+}
+
 function generateHTML(mappings){
     let bodyTag = document.getElementById("body");
     let inner = "";
 
-    let flag=true
-    let topic_data;
-    mappings.forEach(element => {
-        if ((element.topic_id == topic_id) && flag){
-            topic_data = element;
-            flag=false;
-        }
-    });
-    let lesson_data;
-    flag=true;
-    topic_data.lessons.forEach(element => {
-        console.log(element);
-        if ((element.lesson_id == lesson_id) && flag){
-            lesson_data = element;
-            flag=false;
-        }
-    });
-    inner += `<h2>${topic_data.title}</h2><h3>${lesson_data.title}</h3>`
+    let topic_data = array_match(mappings, "topic_id", topic_id)
 
-    console.log(lesson_data)
+    let lesson_data = array_match(topic_data.lessons, "lesson_id", lesson_id)
 
-    lesson_data.audio.forEach(element => {
-        inner += `<audio id="${element}" src="/data/audio/${element}"></audio>
-        <button id="${element}" onClick="play_audio(this)">play</button>
-        <button id="${element}" onClick="pause_audio(this)">pause</button><br>`
-    })
+    inner += `<h1>${topic_data.title}</h1><h3>${lesson_data.title}</h3><ul class="list-group"><li class="list-group-item"><h5>Audio</h5></li>`
 
+    for (let i=0; i<lesson_data.audio.length;i++){
+        let element = lesson_data.audio[i]
+        inner += `<li class="list-group-item"><p>Audio clip-${i+1}</p><audio id="${element}" src="/data/audio/${element}"></audio>
+        <button id="${element}" onClick="play_audio(this)" class="btn btn-primary">play</button>
+        <button id="${element}" onClick="pause_audio(this)" class="btn btn-secondary">pause</button><br></li>`
+    }
+    inner += `<li class="list-group-item"><h5>Images</h5></li>`
+    for (let i=0; i<lesson_data.image.length;i++){
+        let element = lesson_data.image[i]
+        inner += `<li class="list-group-item"><p>image-${i+1}</p><img id="${element}" class="img-fluid rounded mx-auto d-block" src="/data/images/${element}"></img>`
+    }
+    inner += "</ul>"
     bodyTag.innerHTML = inner;
 }
 

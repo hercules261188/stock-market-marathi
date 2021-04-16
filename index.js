@@ -1,13 +1,13 @@
 
 function generateHTML(mappings){
     let bodyTag = document.getElementById("body");
-    let innerhtml = `<ul>`;
+    let innerhtml = `<ul class="list-group">`;
 
     mappings.forEach(function(lesson){
-        let li_elements = `<li><h3>${lesson.title} - ${lesson.description}</h3><ul>`
+        let li_elements = `<li  class="list-group-item"><h3>${lesson.title}<br><small class="text-muted">${lesson.description}</small></h3><ul class="list-group">`
         lesson.lessons.forEach(single_lesson_data => {
             li_elements += `
-                        <li>
+                        <li  class="list-group-item">
                             <a id="${String(lesson.topic_id)+ "."+String(single_lesson_data.lesson_id)}" 
                             href="#">${single_lesson_data.title}</a>
                         </li>
@@ -17,12 +17,14 @@ function generateHTML(mappings){
         innerhtml += li_elements
     })
     innerhtml += "</ul>"
-    bodyTag.innerHTML = innerhtml
+    bodyTag.innerHTML += innerhtml
 
     let anchors = document.getElementsByTagName("a")
 
     for(let pointer=0; pointer<anchors.length; pointer++){
+        if (anchors[pointer].id != "exclude"){
         anchors[pointer].href = `content.html?lesson_identifier=${anchors[pointer].id}`
+        }
 }}
 
 // read mappings file
