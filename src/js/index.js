@@ -1,13 +1,15 @@
+const path = "./" 
+// const path = "https://pratik-choudhari.github.io/stock-market-marathi/" 
 
 function generateHTML(mappings){
     let bodyTag = document.getElementById("body");
-    let innerhtml = `<ul class="list-group">`;
+    let innerhtml = `<ul>`;
 
     mappings.forEach(function(lesson){
-        let li_elements = `<li  class="list-group-item"><h3>${lesson.title}<br><small class="text-muted">${lesson.description}</small></h3><ul class="list-group">`
+        let li_elements = `<li id="container" class="list-group-item"><h4>${lesson.title}<br><small class="text-muted">${lesson.description}</small></h4><ul class="list-group">`
         lesson.lessons.forEach(single_lesson_data => {
             li_elements += `
-                        <li  class="list-group-item">
+                        <li class="list-group-item">
                             <a id="${String(lesson.topic_id)+ "."+String(single_lesson_data.lesson_id)}" 
                             href="#">${single_lesson_data.title}</a>
                         </li>
@@ -28,6 +30,6 @@ function generateHTML(mappings){
 }}
 
 // read mappings file
-fetch("https://pratik-choudhari.github.io/stock-market-marathi/data/mappings.json")
+fetch(`${path}data/mappings.json`)
     .then(response => response.json())
     .then(generateHTML);

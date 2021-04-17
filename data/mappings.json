@@ -1,13 +1,10 @@
 [{
     "topic_id": 1,
-    "lessons": [{"lesson_id": 1, "title": "Intraday levels", "audio": ["intraday support resistance.ogg"], "image": ["intraday support resistance.jpeg"]},
-                {"lesson_id": 2, "title": "Risk in intraday trading", "audio": ["risk appetite.ogg"], "image": ["risk appetite.jpeg"]}],
-    "title": "Risk and Intraday levels",
-    "description": "Learn how to manage risk and manage intraday levels"
-},
-{
-    "topic_id": 2,
-    "lessons": [{"lesson_id": 1, "title": "Media effect", "audio": ["important of media in stock market.ogg"], "image": ["important of media in stock market.jpeg"]}],
-    "title": "Importance of media in stock market",
-    "description": "Know how media can help you get an edge over others"
+    "lessons": [{"lesson_id": 1, "title": "समज गैरसमज", "audio": ["audio-1-1.ogg"], "image": ["image-1-1.jpeg"]},
+                {"lesson_id": 2, "title": "सेबी आणि स्टॉक एक्सचेंज", "audio": ["audio-1-2.ogg"], "image": ["image-1-2.jpeg"]},
+                {"lesson_id": 3, "title": "ईस्ट इंडिया कंपनीत वस्तूंचे व्यापार", "audio": ["audio-1-3.ogg"], "image": ["image-1-3.jpeg"]},
+                {"lesson_id": 4, "title": "शेअर बाजाराची स्थापना", "audio": ["audio-1-4.ogg"], "image": ["image-1-4.jpeg"]}],
+    "title": "Why and What of Share Market",
+    "date": "April 12, 2021",
+    "description": "Why to invest in stock market, What should be your psychology and History of Share Market"
 }]
