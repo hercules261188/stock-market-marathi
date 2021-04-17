@@ -28,24 +28,39 @@ function generateHTML(mappings){
     let lesson_data = array_match(topic_data.lessons, "lesson_id", lesson_id)
 
     inner += `<h1>${topic_data.title}</h1><h3>${lesson_data.title}</h3>
-                <ul class="list-group"><hr class="my-4">
-                <li class="list-group-item"><h5>Audio</h5></li>`
+                <ul class="list-group"><hr class="my-4">`
 
-    for (let i=0; i<lesson_data.audio.length;i++){
-        let element = lesson_data.audio[i]
-        inner += `<li class="list-group-item"><p>Audio Clip-${i+1}</p><audio preload="true" id="${element}" src="${path}data/audio/${element}"></audio>
-        <button id="${element}" onClick="play_audio(this)" class="btn btn-primary">play</button>
-        <button id="${element}" onClick="pause_audio(this)" class="btn btn-secondary">pause</button><br></li>`
+    if (lesson_data.audio.length > 0){
+        inner += `<li class="list-group-item"><h5>Audio</h5></li>`
+
+        for (let i=0; i<lesson_data.audio.length;i++){
+            let element = lesson_data.audio[i]
+            inner += `<li class="list-group-item"><p>Audio Clip-${i+1}</p><audio preload="true" id="${element}" src="${path}data/audio/${element}"></audio>
+            <button id="${element}" onClick="play_audio(this)" class="btn btn-primary">play</button>
+            <button id="${element}" onClick="pause_audio(this)" class="btn btn-secondary">pause</button><br></li>`
+        }
+        inner += `</ul>`
     }
-    inner += `</ul><ul class="list-group"><li class="list-group-item"><h5>Images</h5></li>`
-    for (let i=0; i<lesson_data.image.length;i++){
-        let element = lesson_data.image[i]
-        inner += `<li class="list-group-item"><p>Image-${i+1}</p><img id="${element}" class="img-fluid rounded mx-auto d-block" src="${path}data/images/${element}"></img>`
+    if (lesson_data.image.length > 0){
+        inner += `<ul class="list-group"><li class="list-group-item"><h5>Images</h5></li>`
+        for (let i=0; i<lesson_data.image.length;i++){
+            let element = lesson_data.image[i]
+            inner += `<li class="list-group-item"><p>Image-${i+1}</p><img id="${element}" class="img-fluid rounded mx-auto d-block" src="${path}data/images/${element}"></img>`
+        }
+        inner += "</ul>"
     }
-    inner += "</ul>"
+    if (lesson_data.video.length > 0){
+        inner += `<ul class="list-group"><li class="list-group-item"><h5>Videos</h5></li>`
+        for (let i=0; i<lesson_data.video.length;i++){
+            let element = lesson_data.video[i]
+            inner += `<li class="list-group-item"><p>Video-${i+1}</p><iframe width="720" height="360" src="${element}" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </iframe> `
+        }
+        inner += "</ul>"
+    }
     bodyTag.innerHTML = inner;
 }
-
 
 // read mappings file
 fetch(`${path}data/mappings.json`)

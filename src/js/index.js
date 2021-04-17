@@ -3,10 +3,11 @@ const path = "https://pratik-choudhari.github.io/stock-market-marathi/"
 
 function generateHTML(mappings){
     let bodyTag = document.getElementById("body");
-    let innerhtml = `<ul>`;
+    let innerhtml = ``;
 
     mappings.forEach(function(lesson){
-        let li_elements = `<li id="container" class="list-group-item"><h4>${lesson.title}<br><small class="text-muted">${lesson.description}</small></h4><ul class="list-group">`
+        innerhtml += "<ul>";
+        let li_elements = `<li id="container" class="list-group-item"><h4>${lesson.title} <span>${lesson.date}</span><br><small class="text-muted">${lesson.description}</small></h4><ul class="list-group">`
         lesson.lessons.forEach(single_lesson_data => {
             li_elements += `
                         <li class="list-group-item">
@@ -15,10 +16,10 @@ function generateHTML(mappings){
                         </li>
                         `
         })
-        li_elements += "</ul></li>"
+        li_elements += "</ul></li></ul>"
         innerhtml += li_elements
     })
-    innerhtml += "</ul>"
+    // innerhtml += "</ul>"
     bodyTag.innerHTML += innerhtml
 
     let anchors = document.getElementsByTagName("a")
