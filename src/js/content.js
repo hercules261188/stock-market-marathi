@@ -1,21 +1,23 @@
+// const path = "./" 
+const path = "https://pratik-choudhari.github.io/stock-market-marathi/"
+const url = `${path}data/mappings.json`
+
 const params = new URLSearchParams(window.location.search)
-let lesson = params.get("lesson_identifier").split(".")
+const lesson = params.get("lesson_identifier").split(".")
 const topic_id = parseInt(lesson[0])
 const lesson_id = parseInt(lesson[1])
 
-// const path = "./" 
-const path = "https://pratik-choudhari.github.io/stock-market-marathi/" 
 
-function array_match(arr, key, id_){
+function array_match(arr, arrKey, idToMatch){
     let temp_data;
     flag=true;
-    arr.forEach(element => {
-        console.log(element);
-        if ((element[key] == id_) && flag){
+    for(let pointer=0;pointer<arr.length;pointer++){
+        var element = arr[pointer];
+        if (element[arrKey] == idToMatch){
             temp_data = element;
-            flag=false;
+            break;
         }
-    });
+    }
     return temp_data;
 }
 
@@ -64,6 +66,6 @@ function generateHTML(mappings){
 }
 
 // read mappings file
-fetch(`${path}data/mappings.json`)
+fetch(url)
     .then(response => response.json())
     .then(generateHTML);

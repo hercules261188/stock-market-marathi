@@ -1,5 +1,6 @@
 // const path = "./" 
-const path = "https://pratik-choudhari.github.io/stock-market-marathi/" 
+const path = "https://pratik-choudhari.github.io/stock-market-marathi/"
+const url = `${path}data/mappings.json`
 
 function generateHTML(mappings){
     let bodyTag = document.getElementById("body");
@@ -7,17 +8,23 @@ function generateHTML(mappings){
 
     mappings.forEach(function(lesson){
         innerhtml += "<ul>";
-        let li_elements = `<li id="container" class="list-group-item"><h4 class="">${lesson.title} <p id="date">${lesson.date}</p>
-        <small class="text-muted text-responsive">${lesson.description}</small></h4><ul class="list-group">`
+        let li_elements = `<li id="container" class="list-group-item">
+                                <h4 class="">${lesson.title}
+                                    <p id="date">${lesson.date}</p>
+                                    <small class="text-muted text-responsive">${lesson.description}</small>
+                                </h4>
+                                <ul class="list-group">`
         lesson.lessons.forEach(single_lesson_data => {
+            let element_id = String(lesson.topic_id)+ "."+String(single_lesson_data.lesson_id)
             li_elements += `
                         <li class="list-group-item">
-                            <a id="${String(lesson.topic_id)+ "."+String(single_lesson_data.lesson_id)}" 
-                            href="#" class="text-responsive">${single_lesson_data.title}</a>
+                            <a id="${element_id}" href="#" class="text-responsive">${single_lesson_data.title}</a>
                         </li>
                         `
         })
-        li_elements += "</ul></li></ul>"
+        li_elements += `</ul>
+                        </li>
+                        </ul>`
         innerhtml += li_elements
     })
     // innerhtml += "</ul>"
@@ -32,6 +39,6 @@ function generateHTML(mappings){
 }}
 
 // read mappings file
-fetch(`${path}data/mappings.json`)
+fetch(url)
     .then(response => response.json())
     .then(generateHTML);
