@@ -5,7 +5,9 @@ body{
     padding: 1.5% 0% 1.5% 0%;
 }
 .content-h{
-    padding: 2%;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 0;
 }
 body ul{
     padding-bottom: 1%;
@@ -15,7 +17,7 @@ body ul{
 body ul li h4{
     padding-left: 3%;
 }
-body ul li ul li{
+body ul li{
     margin-left: 2%;
 }
 span{
@@ -23,6 +25,10 @@ span{
 }
 a{
     font-size: larger;
+}
+#date{
+    font-size: 1.2rem;
+    color: dimgrey;
 }
 iframe{
     width: 80vw;

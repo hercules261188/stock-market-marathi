@@ -23,7 +23,7 @@ function array_match(arr, arrKey, idToMatch){
 
 function generateHTML(mappings){
     let bodyTag = document.getElementById("body");
-    let inner = "<ul>";
+    let inner = "";
 
     let topic_data = array_match(mappings, "topic_id", topic_id)
 
@@ -64,7 +64,6 @@ function generateHTML(mappings){
         }
         inner += "</ul>"
     }
-    inner += "</ul>"
     bodyTag.innerHTML = inner;
 }
 
