@@ -7,12 +7,13 @@ function generateHTML(mappings){
 
     mappings.forEach(function(lesson){
         innerhtml += "<ul>";
-        let li_elements = `<li id="container" class="list-group-item"><h4>${lesson.title} <span>${lesson.date}</span><br><small class="text-muted">${lesson.description}</small></h4><ul class="list-group">`
+        let li_elements = `<li id="container" class="list-group-item"><h4 class="">${lesson.title} <p id="date">${lesson.date}</p>
+        <small class="text-muted text-responsive">${lesson.description}</small></h4><ul class="list-group">`
         lesson.lessons.forEach(single_lesson_data => {
             li_elements += `
                         <li class="list-group-item">
                             <a id="${String(lesson.topic_id)+ "."+String(single_lesson_data.lesson_id)}" 
-                            href="#">${single_lesson_data.title}</a>
+                            href="#" class="text-responsive">${single_lesson_data.title}</a>
                         </li>
                         `
         })

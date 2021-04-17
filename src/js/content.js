@@ -21,13 +21,13 @@ function array_match(arr, key, id_){
 
 function generateHTML(mappings){
     let bodyTag = document.getElementById("body");
-    let inner = "";
+    let inner = "<ul>";
 
     let topic_data = array_match(mappings, "topic_id", topic_id)
 
     let lesson_data = array_match(topic_data.lessons, "lesson_id", lesson_id)
 
-    inner += `<h1>${topic_data.title}</h1><h3>${lesson_data.title}</h3>
+    inner += `<h3 class="content-h">${topic_data.title}</h3><h4 class="content-h">${lesson_data.title}</h4>
                 <ul class="list-group"><hr class="my-4">`
 
     if (lesson_data.audio.length > 0){
@@ -53,12 +53,13 @@ function generateHTML(mappings){
         inner += `<ul class="list-group"><li class="list-group-item"><h5>Videos</h5></li>`
         for (let i=0; i<lesson_data.video.length;i++){
             let element = lesson_data.video[i]
-            inner += `<li class="list-group-item"><p>Video-${i+1}</p><iframe width="720" height="360" src="${element}" 
+            inner += `<li class="list-group-item"><p>Video-${i+1}</p><iframe src="${element}" 
             title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </iframe> `
         }
         inner += "</ul>"
     }
+    inner += "</ul>"
     bodyTag.innerHTML = inner;
 }
 

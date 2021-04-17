@@ -1,12 +1,22 @@
 body{
-    padding: 2% 3% 0 3%;
+    padding: 0%;
 }
 #container{
-    padding: 1.5% 1% 1.5% 1%;
+    padding: 1.5% 0% 1.5% 0%;
 }
-
-ul{
+.content-h{
+    padding: 2%;
+}
+body ul{
     padding-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 3.2%;
+}
+body ul li h4{
+    padding-left: 3%;
+}
+body ul li ul li{
+    margin-left: 2%;
 }
 span{
     float: right;
@@ -15,7 +25,30 @@ a{
     font-size: larger;
 }
 iframe{
+    width: 80vw;
+    height: 30vh;
     margin: 0 auto;
     display: block;
     border-style:none;
+}	
+html {
+    font-size: 1rem;
+  }
+  
+@include media-breakpoint-up(sm) {
+html {
+    font-size: 1.2rem;
+}
+}
+
+@include media-breakpoint-up(md) {
+html {
+    font-size: 1.4rem;
+}
+}
+
+@include media-breakpoint-up(lg) {
+html {
+    font-size: 1.6rem;
+}
 }
