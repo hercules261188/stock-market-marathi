@@ -37,9 +37,12 @@ function generateHTML(mappings){
 
         for (let i=0; i<lesson_data.audio.length;i++){
             let element = lesson_data.audio[i]
-            inner += `<li class="list-group-item"><p>Audio Clip-${i+1}</p><audio preload="true" id="${element}" src="${path}data/audio/${element}"></audio>
-            <button id="${element}" onClick="play_audio(this)" class="btn btn-primary">play</button>
-            <button id="${element}" onClick="pause_audio(this)" class="btn btn-secondary">pause</button><br></li>`
+            inner += `<li class="list-group-item">
+                        <p>Audio Clip-${i+1}</p>
+                        <audio preload="false" id="${element}" src="${path}data/audio/${element}"></audio>
+                        <button id="${element}" onClick="play_audio(this)" class="btn btn-primary">play</button>
+                        <button id="${element}" onClick="pause_audio(this)" class="btn btn-secondary">pause</button><br>
+                    </li>`
         }
         inner += `</ul>`
     }
