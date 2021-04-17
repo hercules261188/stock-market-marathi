@@ -1,5 +1,5 @@
-const path = "./" 
-// const path = "https://pratik-choudhari.github.io/stock-market-marathi/" 
+// const path = "./" 
+const path = "https://pratik-choudhari.github.io/stock-market-marathi/" 
 
 function generateHTML(mappings){
     let bodyTag = document.getElementById("body");
