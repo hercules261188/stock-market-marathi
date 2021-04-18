@@ -6,7 +6,7 @@ body{
 }
 .content-h{
     margin-left: 2%;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-bottom: 0;
 }
 body ul{
@@ -19,6 +19,9 @@ body ul li h4{
 }
 body ul li{
     margin-left: 2%;
+}
+button{
+    margin-right: 1%;
 }
 span{
     float: right;
