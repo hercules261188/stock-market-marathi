@@ -4,8 +4,8 @@ This file injects html into content.html and uses DOM manipulation by appending 
 child nodes
 */
 
-const path = "./" 
-// const path = "https://pratik-choudhari.github.io/stock-market-marathi/"
+// const path = "./" 
+const path = "https://pratik-choudhari.github.io/stock-market-marathi/"
 const url = `${path}data/mappings.json`
 
 const params = new URLSearchParams(window.location.search)

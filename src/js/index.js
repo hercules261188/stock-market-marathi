@@ -5,8 +5,8 @@ child nodes
 */
 
 
-const path = "./" 
-// const path = "https://pratik-choudhari.github.io/stock-market-marathi/"
+// const path = "./" 
+const path = "https://pratik-choudhari.github.io/stock-market-marathi/"
 const url = `${path}data/mappings.json`
 
 function generateHTML(mappings){
