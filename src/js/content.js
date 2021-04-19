@@ -143,11 +143,14 @@ function generateHTML(mappings){
 
             let video_wrap = document.createElement("li")
             video_wrap.className = "list-group-item"
-            video_wrap.appendChild(document.createElement("p").setAttribute("textContent", `Video-${i+1}`))
+            let para = document.createElement("p")
+            para.textContent =  `Video-${i+1}`
+            video_wrap.appendChild(para)
 
-            let video = document.createElement("iframe").setAttribute("src", `${element}`)
+            let video = document.createElement("iframe")
+            video.src =  `${element}`
             video.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            video.setAttribute("allowfullscreen")
+            video.setAttribute("allowfullscreen", true)
 
             video_wrap.appendChild(video)
             aud_img_list.appendChild(video_wrap)
